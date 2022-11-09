@@ -237,13 +237,13 @@ firewall-cmd --zone=public --add-port=3306/tcp --permanent firewall-cmd --reload
 ## 五. 远程连接授权
 
 ```mysql
-grant all privileges on ***.\*** to 'root'@'%' identified by '123456';
+grant all privileges on *.* to 'root'@'%' identified by '123456';
 ```
 
 或者：
 
 ```mysql
-grant all privileges on ***.\*** to 'root'@'%' identified by '123456' with grant option;
+grant all privileges on *.* to 'root'@'%' identified by '123456' with grant option;
 ```
 
 其中**%是指任意ip**，自己自定义一个远程可以访问的账户，账号和密码可以和本地root同名。
@@ -251,8 +251,6 @@ grant all privileges on ***.\*** to 'root'@'%' identified by '123456' with grant
 ```mysql
 flush privileges;
 ```
-
-![](img/lip_image035.png)
 
 查看当前mysql的用户
 
