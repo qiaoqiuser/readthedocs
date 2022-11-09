@@ -18,7 +18,7 @@
 
 主从服务器需要有相同的初态
 
-1. 将主服务器要同步的数据库枷锁，避免同步时数据发生改变
+1、将主服务器要同步的数据库枷锁，避免同步时数据发生改变
 
 ```mysql
 flush tables with read lock;  
@@ -28,7 +28,7 @@ flush tables with read lock;
 
 ![](img/clipboard2.png)
 
-2. 将主服务器数据库中数据导出
+2、将主服务器数据库中数据导出
 
 ```mysql
 mysqldump -uroot -p123456 meifa > /root/mysql-backup/data/meifa.sql;
@@ -36,17 +36,17 @@ mysqldump -uroot -p123456 meifa > /root/mysql-backup/data/meifa.sql;
 
 ![](img/image-20221110010158896.png)
 
-3. 备份完成后，解锁主服务器数据库
+3、备份完成后，解锁主服务器数据库
 
 ```mysql
 unlock tables;
 ```
 
-4. 在从数据库中创建数据库
+4、在从数据库中创建数据库
 
 ![](img/clipboard4.png)
 
-5. 从库导入主库中的数据库
+5、从库导入主库中的数据库
 
 ![](img/clipboard5.png)
 
@@ -56,7 +56,7 @@ unlock tables;
 
 ### 一. Master配置
 
-1. 修改my.cnf
+1、修改my.cnf
 
 ```sh
 vim /etc/my.cnf
@@ -84,13 +84,13 @@ expire_logs_days = 7
 
 
 
-2. 重启MySQL
+2、重启MySQL
 
 ```sh
 systemctl restart mysqld
 ```
 
-3. 创建slave同步账户，并授权
+3、创建slave同步账户，并授权
 
 ```mysql
 --创建slave账号root，119.91.214.237为slave的ip，密码123456
@@ -103,7 +103,7 @@ flush privileges;
 
 
 
-4. 显示mater状态
+4、显示mater状态
 
 ```mysql
 SHOW MASTER STATUS;
@@ -113,7 +113,7 @@ SHOW MASTER STATUS;
 
 ### 二. 从库配置
 
-1. 修改从库my.cnf配置
+1、修改从库my.cnf配置
 
 ```mysql
 #主从配置，从库配置
@@ -132,13 +132,13 @@ slave-net-timeout = 60
 
 
 
-2. 重启MySQL
+2、重启MySQL
 
 ```sh
 systemctl start mysql
 ```
 
-3. 执行同步命令
+3、执行同步命令
 
 \#执行同步命令，设置主服务器ip，同步账号密码，同步位置 
 
@@ -158,7 +158,7 @@ MASTER_LOG_POS=858;
 start slave;
 ```
 
-4. 查看从服务器状态
+4、查看从服务器状态
 
 ```mysql
 show slave status;
