@@ -34,7 +34,7 @@ flush tables with read lock;
 mysqldump -uroot -p123456 meifa > /root/mysql-backup/data/meifa.sql;
 ```
 
-![](img/clipboard3.png)
+![](img/image-20221110010158896.png)
 
 3. 备份完成后，解锁主服务器数据库
 
@@ -93,7 +93,7 @@ systemctl restart mysqld
 3. 创建slave同步账户，并授权
 
 ```mysql
---创建slave账号root，119.91.214.237为slave的ip，密码iay#@Ugc765
+--创建slave账号root，119.91.214.237为slave的ip，密码123456
 CREATE USER 'root'@'119.91.214.237' IDENTIFIED WITH mysql_native_password BY '123456';
 --授权
 GRANT REPLICATION SLAVE ON *.* TO 'root'@'119.91.214.237';
