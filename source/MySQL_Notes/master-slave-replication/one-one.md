@@ -31,7 +31,7 @@ flush tables with read lock;
 2. 将主服务器数据库中数据导出
 
 ```mysql
-mysqldump -uroot -piay#@Ugc765 meifa > /root/mysql-backup/data/meifa.sql;
+mysqldump -uroot -p123456 meifa > /root/mysql-backup/data/meifa.sql;
 ```
 
 ![](img/clipboard3.png)
@@ -147,7 +147,7 @@ CHANGE MASTER TO
 MASTER_HOST='106.13.233.13', 
 MASTER_PORT=6379, 
 MASTER_USER='root', 
-MASTER_PASSWORD='iay#@Ugc765', 
+MASTER_PASSWORD='123456', 
 MASTER_LOG_FILE='mysql-bin.000001', 
 MASTER_LOG_POS=858; 
 ```
