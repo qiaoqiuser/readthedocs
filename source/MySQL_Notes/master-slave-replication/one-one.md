@@ -93,12 +93,12 @@ systemctl restart mysqld
 3、创建slave同步账户，并授权
 
 ```mysql
---创建slave账号：slave，119.91.214.237为slave的ip，密码123456
---注意这里不要创建root用户，以免和root用户权限混淆
+-- 创建slave账号：slave，119.91.214.237为slave的ip，密码123456
+-- 注意这里不要创建root用户，以免和root用户权限混淆
 CREATE USER 'slave'@'119.91.214.237' IDENTIFIED WITH mysql_native_password BY '123456';
 --授权
 GRANT REPLICATION SLAVE ON *.* TO 'slave'@'119.91.214.237';
---更新数据库权限
+-- 更新数据库权限
 flush privileges;
 ```
 
