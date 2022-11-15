@@ -42,6 +42,8 @@ spring:
       slave:
         type: com.alibaba.druid.pool.DruidDataSource
         driver-class-name: com.mysql.jdbc.Driver
+        # 多个从库的故障转移，加loadbalance
+        # url: jdbc:mysql:loadbalance://slave1:port,slave2:port/meifa?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=GMT%2B8
         url: jdbc:mysql://119.91.214.237:3307/meifa?allowMultiQueries=true&useUnicode=true&characterEncoding=UTF8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true&serverTimezone=GMT%2B8
         username: root
         password: '数据库密码'
